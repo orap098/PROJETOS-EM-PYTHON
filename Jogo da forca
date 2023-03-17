@@ -1,0 +1,44 @@
+import random
+from os import system, name
+def limpa_tela():
+    if name == 'nt':
+        _=system('cls')
+    else:
+        _=system('clear')
+def jogo():
+
+    limpa_tela()
+    print("\nBem-vindo(a) ao jogo da forca")
+    print("Adivinhe a palavra abaixo:")
+    print("DICA:Fruta\n")
+
+    palavras=['banana', 'maça', 'morango', 'abacate', 'uva', 'laranja', 'morango', 'abacaxi']
+    palavra = random.choice(palavras)
+
+    letras_descobertas=['_' for letra in palavra]
+    chances= 6
+    letrasErradas=[]
+
+    while chances>0:
+        print(" ".join(letras_descobertas))
+        print("\nChances restantes:", chances)
+        print("Letras erradas:"," ".join(letrasErradas))
+
+        tentativa = input("\nDigite uma letra: ").lower()
+        if tentativa in palavra:
+            index = 0
+            for letra in palavra:
+                if tentativa == letra:
+                    letras_descobertas[index] = letra
+                index +=1
+        else:
+            chances -=1
+            letrasErradas.append(tentativa)
+
+        if "_" not in letras_descobertas:
+            print("\nVocê venceu, a palavra era:", palavra)
+            break
+    if "_" in letras_descobertas:
+        print("\nVocê perdeu, a palavra era:", palavra)
+if __name__ == "__main__":
+    jogo()
