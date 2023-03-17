@@ -1,0 +1,14 @@
+condicao = True
+while condicao:
+    inicialização_ = print("SEJA BEM VINDO A CALCULADORA\nOPERAÇÕES\n(1-Soma, 2- Subtração, 3- Multiplicação, 4- Divisão, 5- Potência)")
+    oper_ = input("Escolha sua operação: ")
+    x = int(input("Digite o primeiro número: "))
+    y = int(input("Digite o segundo número: "))
+    if oper_ == "1":print(x+y)
+    elif oper_ == "2":print(x-y)
+    elif oper_ == "3":print(x*y)
+    elif oper_ == "4":print(x/y)
+    elif oper_ == "5":print(x**y)
+    else: oper_ !=  print("Operação Inválida")
+    if input('Fazer outra operação? S ou N: ') == 'N' and "n":
+        break
